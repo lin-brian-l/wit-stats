@@ -1,0 +1,21 @@
+<% if @welcome %> 
+<p><%= @welcome %></p>
+<% end %>
+
+<% if authorized?(@user) %>
+<h1 id="new_post_link"><a href="/entries/new">Write about broccoli!</a></h1>
+<% end %>
+
+<h1>Entries by <%= @user.username %></h1>
+<% if @entries.length == 0 %>
+  <% if authorized?(@user) %>
+  <p>You have not written any entries :(.</p>
+  <% else %>
+  <p><%= @user.username %> has not written any entries :(.</p>
+  <% end %>
+<% else %>
+  <% @entries.each do |entry| %>
+  <h2><a href="/entries/<%= entry.id %>"><%= entry.title %></a></h2>
+    <%= erb :'/entries/_entry_description', locals: { entry: entry } %>
+  <% end %>
+<% end %>

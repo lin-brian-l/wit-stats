@@ -1,0 +1,32 @@
+<h1><a href="/players">Back to Players</a></h1>
+
+<p>Disclaimer: This page requires Javascript to be allowed and may not work on Safari or Internet Explorer.</p>
+
+<div id="player-error-container"><ul id="player-error-list"></ul></div>
+
+<form id="player-h2h-form">
+  <div class="index-container-3">
+    <div class="player-1-list">
+      <span>Player 1: </span>
+      <input id="player-1-input" list="playerlist" name="datalist">  
+      <%= erb :'/players/_player_list', locals: { players: @players } %>
+    </div>  
+    <div class="player-2-list">
+      <span>Player 2: </span>
+      <input id="player-2-input" list="playerlist" name="datalist">
+      <%= erb :'/players/_player_list', locals: { players: @players } %>
+    </div>
+    <div class="game-list">
+      <span>Game: </span>
+      <select id="game-list">
+        <option value="">Choose Event</option>
+        <option value="Melee Singles">Melee Singles</option>
+        <option value="Project M Singles">Project M Singles</option>
+        <option value="Wii U Singles">Wii U Singles</option>
+      </select>
+    </div>
+  </div>
+  <input type="submit">
+</form>
+
+<div class="all-match-results-container"></div>

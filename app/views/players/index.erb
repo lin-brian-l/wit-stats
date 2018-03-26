@@ -1,0 +1,13 @@
+<div class="index-container-3">
+  <h1><a href="/tournaments">All Tournaments</a></h1>
+  <h1><u>All Players</u></h1>
+  <h1><a href="/players/h2h">Match History</a></h1>
+</div>
+
+<div class="players-container">
+  <ul class="player-list">
+  <% @players.each do |player| %>
+    <li><a href="/players/<%= player.id %>"><%= player.full_tag %></a></li>
+  <% end %>
+  </ul>
+</div>

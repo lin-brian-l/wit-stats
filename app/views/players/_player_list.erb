@@ -1,0 +1,5 @@
+<datalist id="playerlist" class="scrollable">
+  <% @players.each do |player| %>
+  <option value="<%= player.full_tag %>">
+  <% end %>
+</datalist>

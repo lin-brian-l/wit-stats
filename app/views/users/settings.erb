@@ -1,0 +1,23 @@
+<h1><a href="/users/admin">Go to Admin Panel</a></h1>
+
+<h1>Change Password</h1>
+
+<% if @success %>
+<p>Your password has been updated!</p>
+<% end %>
+
+<div class="setting-error-container">
+  <% if @error %>
+  <ul>
+    <li><%= @error %></li><br>
+  </ul>
+  <% end %>
+</div>
+
+<form id="profile-form" method="post", action="/users">
+  <input type="hidden" name="_method" value="put">
+  <span>Current password: </span><input type="password" name="old_password"><br>
+  <span>New password: </span><input id="password-1" type="password" name="password1"><br>
+  <span>Confirm new password: </span><input id="password-2" type="password" name="password2"><br>
+  <input type="submit" value="Submit">
+</form>

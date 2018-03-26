@@ -1,0 +1,31 @@
+<% if current_user && is_admin?(current_user) %>
+<h1 class="text-c"><a href="/tournaments/new">Add a tournament</a></h1>
+<% end %>
+
+<div class="index-container-3">
+  <h1><u>All Tournaments</u></h1>
+  <h1><a href="/players">All Players</a></h1>
+  <h1><a href="/players/h2h">Match History</a></h1>
+</div>
+
+<% @tournaments.each_with_index do |tournament, index| %>
+<div class="tournament-item">
+  <% if index == 0 %>
+  <h2 class="mar-t-0"><a href="/tournaments/<%= tournament.id %>"><%= tournament.name %></a></h2>
+  <% else %>
+  <h2><a href="/tournaments/<%= tournament.id %>"><%= tournament.name %></a></h2>
+  <% end %>
+  <%= erb :'/tournaments/_tournament_description', locals: { tournament: tournament } %>
+
+  <div class="event-container bottom-border pad-b-2">
+  <% tournament.events.each do |event| %>
+    <div class="event">
+      <p><u><%= event.name %> Top 8</u></p> 
+      <% event.list_top_8.each do |placing| %>
+      <span><a href="/players/<%= placing.player.id %>"><%= placing.placing %><%= get_suffix(placing.placing) %>: <%= placing.player.full_tag %></a></span><br>
+      <% end %> 
+    </div>
+  <% end %>  
+  </div>
+</div>
+<% end %>

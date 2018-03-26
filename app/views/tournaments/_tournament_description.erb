@@ -1,0 +1,5 @@
+<ul>
+  <li>Date: <%= tournament.formatted_date %></li>
+  <li>Unique entrants: <%= tournament.attendees.distinct.count %></li>
+  <li><a href=<%= tournament.link %>>Smash.gg Link</a></li>
+</ul>

@@ -1,0 +1,13 @@
+<h1>Admin Login</h1>
+
+<% if @error %>
+<ul>
+  <li><%= @error %></li>
+</ul>
+<% end %>
+
+<form method="post", action="/sessions">
+  <input type="text" name="username" placeholder="Username"><br>
+  <input type="password" name="password" placeholder="Password"><br>
+  <input type="submit" value="Login">
+</form>
